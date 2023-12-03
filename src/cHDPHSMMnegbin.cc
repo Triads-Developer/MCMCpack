@@ -567,7 +567,7 @@ void HDPHSMMnegbinReg_impl(rng<RNGTYPE>& stream,
       gamma_prime = stream.rdirich(gamma_prime_dir);
     }
 
-    if (debug > 0) Rprintf("before P\n", alpha);
+    if (debug > 0) Rprintf("before P alpha - %d\n", alpha);
     for (int j = 0; j < ns; ++j) {
       Matrix<double> p_dirich_params(ns,1);
       for (int i = 0; i < ns; ++i) {
