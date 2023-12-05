@@ -92,7 +92,7 @@
     _SCYTHE_WARN_ss << "WARNING in " << __FILE__ << ", "              \
       << __func__ << ", " << __LINE__ << ": "                         \
       << MSG << "\n";                                                 \
-    Rprintf(_SCYTHE_WARN_ss.str().c_str());                           \
+    Rprintf("%s", _SCYTHE_WARN_ss.str().c_str());                           \
   }
 
 #define SCYTHE_WARN_STD(MSG)                                          \
@@ -625,7 +625,7 @@ namespace scythe
   inline void scythe_terminate ()
   {
 #ifdef SCYTHE_RPACK
-    Rprintf(serr->what());
+    Rprintf("%s", serr->what());
     error("Aborting Scythe C++ execution");
 #else
     std::cerr << serr->what() << std::endl;
