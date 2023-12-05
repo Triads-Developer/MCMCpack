@@ -46,7 +46,7 @@ static double dtnormLX(const double x,
     out = numer/denom;
   }
   else{
-    Rprintf("\n x input for dtnormLX() %10.5f is out of bounds %10.5f %10.5f ", x, lower, upper, "\n");
+    Rprintf("\n x input for dtnormLX() %10.5d is out of bounds %10.5d %10.5d \n", x, lower, upper);
     out = 1;
   }
   return out;
