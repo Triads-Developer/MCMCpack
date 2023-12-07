@@ -387,7 +387,7 @@ namespace scythe {
 
 				if (block_->removeReference() == 0
 						&& block_ != &nullBlock_)
-					delete block_;
+					//delete block_;
 			}
 
 			void referenceNull ()
