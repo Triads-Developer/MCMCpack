@@ -315,7 +315,7 @@ namespace scythe {
           lock = true;
         }
 #endif
-				withdrawReference();
+				//withdrawReference();
 #ifdef SCYTHE_PTHREAD
         if (lock)
           pthread_mutex_unlock (&ndbMutex_);
@@ -335,7 +335,7 @@ namespace scythe {
           lock = true;
         }
 #endif
-				withdrawReference ();
+				//withdrawReference ();
 				block_ = ref.block_;
 				block_->addReference();
 				data_ = ref.data_ + offset;
@@ -364,7 +364,7 @@ namespace scythe {
           // that the interface and implementation are too tightly
           // coupled for resizing.
 				} else {
-					withdrawReference();
+					//withdrawReference();
 					block_ = 0;
 					block_ = new (std::nothrow) DataBlock<T_type> (size);
 					SCYTHE_CHECK_10(block_ == 0, scythe_alloc_error,
@@ -387,7 +387,7 @@ namespace scythe {
 
 				if (block_->removeReference() == 0
 						&& block_ != &nullBlock_)
-					//delete block_;
+					delete block_;
 			}
 
 			void referenceNull ()
@@ -395,7 +395,7 @@ namespace scythe {
 #ifdef SCYTHE_PTHREAD
         pthread_mutex_lock (&ndbMutex_);
 #endif
-				withdrawReference();
+				//withdrawReference();
 				block_ = &nullBlock_;
 				block_->addReference();
 				data_ = 0;
